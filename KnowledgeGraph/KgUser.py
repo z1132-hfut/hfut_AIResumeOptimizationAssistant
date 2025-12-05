@@ -62,7 +62,7 @@ class KgUser():
 
     def save_kg_to_txt(self, file_path: str = "kg_jobInfo.txt"):
         """
-        保存原字典结构到txt（Python原生格式，可直接还原）
+        保存原字典结构到txt（Python原生格式，可直接还原）。覆盖写入
         :param file_path: 保存路径（默认同文件夹）
         """
         # 获取原结构结果

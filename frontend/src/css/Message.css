@@ -1,0 +1,128 @@
+.message {
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem 0.8rem;
+  margin-bottom: 0.8rem;
+  animation: fadeIn 0.3s ease;
+  width: 100%; /* 确保消息容器占满可用宽度 */
+  box-sizing: border-box; /* 避免padding导致溢出 */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-message {
+  background: #ebf3ff;
+  border-radius: 12px;
+  justify-content: flex-end; /* 整体右对齐 */
+  /* 关键：让用户消息容器自适应内容宽度 */
+  width: fit-content;
+  max-width: 50%; /* 与.message-content最大宽度一致 */
+  margin-left: auto; /* 强制推到右侧，保持右对齐 */
+  box-sizing: border-box;
+}
+
+.ai-message {
+  background: #ffffff;
+  border-radius: 12px;
+  justify-content: flex-start; /* AI消息左对齐 */
+  /* 关键：让AI消息容器自适应内容宽度 */
+  width: fit-content;
+  max-width: 100%; /* 可按需调整，与AI的.message-content一致 */
+  box-sizing: border-box;
+}
+
+.message-content {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* 用户消息：右对齐 + 自适应宽度 */
+.user-message .message-content {
+  margin-left: auto; /* 强制推到右侧，实现右对齐 */
+  text-align: left; /* 文字左对齐（符合阅读习惯） */
+}
+
+/* AI消息：左对齐 + 限制最大宽度（避免过宽） */
+.ai-message .message-content {
+  max-width: 100%; /* AI消息可略宽，按需调整 */
+  padding: 0 0.5rem;
+}
+
+.message-text {
+  color: #1a1a1a;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+}
+
+/* 保留原有基础样式 */
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .message {
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: nowrap; /* 防止换行 */
+  }
+
+  /* 用户消息：移动端更窄 */
+  .user-message {
+    max-width: 85%; /* 增加最大宽度，给内容更多空间 */
+    margin-left: auto; /* 确保右对齐 */
+    align-self: flex-end; /* 重要：让消息靠右对齐 */
+    border-radius: 12px 12px 4px 12px; /* 优化圆角，右侧更圆 */
+  }
+
+  /* AI消息：移动端调整 */
+  .ai-message {
+    max-width: 85%; /* 与用户消息对称 */
+    align-self: flex-start; /* 左对齐 */
+    border-radius: 12px 12px 12px 4px; /* 优化圆角，左侧更圆 */
+  }
+
+  /* 消息内容区域调整 */
+  .message-content {
+    max-width: 100% !important; /* 强制占满容器宽度 */
+    padding: 0 0.3rem; /* 减少内边距 */
+  }
+
+  /* 用户消息内容右对齐 */
+  .user-message .message-content {
+    margin-left: auto;
+  }
+
+  /* AI消息内容左对齐 */
+  .ai-message .message-content {
+    margin-left: 0;
+  }
+
+  .message-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 2rem;
+    flex-shrink: 0; /* 防止头像被压缩 */
+  }
+}
+
+/* 针对更小的手机屏幕（可选） */
+@media (max-width: 480px) {
+  .user-message,
+  .ai-message {
+    max-width: 90%; /* 在超小屏幕上更宽一些 */
+  }
+
+  .message-text {
+    font-size: 0.9rem; /* 减小字体 */
+    line-height: 1.5;
+  }
+}

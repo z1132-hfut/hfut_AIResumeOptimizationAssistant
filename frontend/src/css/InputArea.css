@@ -1,0 +1,486 @@
+.input-area {
+  padding: 0 2rem;
+  position: relative;
+}
+
+.input-form {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.input-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 20px;
+  padding: 1rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+  max-height: 80px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.input-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 60px;
+}
+
+/* 消息输入容器 */
+.message-input-container {
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+}
+
+.message-input {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  min-height: 3em; /* 2行文字的最小高度 */
+  max-height: 200px;
+  caret-color: #1976d2;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  display: block;
+}
+
+.message-input::placeholder {
+  color: #888;
+}
+
+/* 简历上传模块样式 */
+.resume-upload-section {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.upload-section {
+  min-height: 0;
+  position: relative;
+  padding-bottom: 50px; /* 新增：为按钮预留空间，解决覆盖问题 */
+}
+
+.upload-section h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-group label.required::after {
+  content: " *";
+  color: #e74c3c;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #5792e8;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* 文件上传区域 */
+.file-upload-area {
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-placeholder {
+  border: 2px dashed #d0d0d0;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.upload-placeholder:hover {
+  border-color: #5792e8;
+  background: #f8faff;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.file-name {
+  color: #333;
+  font-weight: 500;
+}
+
+.remove-file {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.remove-file:hover {
+  background: #c0392b;
+}
+
+.file-hint {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* 模式选择器样式 */
+.mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  justify-content: space-between; /* 改为 space-between 让按钮靠右 */
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.mode-button {
+  padding: 0.4rem 1rem;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  color: #666;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  outline: none;
+  flex-shrink: 0;
+}
+
+.mode-button:hover {
+  background: #f5f5f5;
+  border-color: #5792e8;
+}
+
+.mode-button.active {
+  background: #5792e8;
+  color: white;
+  border-color: #5792e8;
+}
+
+/* 发送按钮容器 */
+.send-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: auto; /* 自动左边距，推到最右边 */
+}
+
+.send-button {
+  background: #5792e8;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.send-button:hover:not(:disabled) {
+  background: #689eec;
+}
+
+.send-button:disabled {
+  background: #a1c0ee;
+  cursor: not-allowed;
+  color: #ffffff;
+  transform: none;
+}
+
+.input-footer {
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.disclaimer {
+  color: #888;
+  font-size: 0.75rem;
+}
+
+/* 滚动条样式 */
+.input-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.input-container::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 3px;
+}
+
+.input-container::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+
+.input-container::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+.resume-upload-section::-webkit-scrollbar {
+  width: 4px;
+}
+
+.resume-upload-section::-webkit-scrollbar-track {
+  background: #f9f9f9;
+  border-radius: 2px;
+}
+
+.resume-upload-section::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .input-area {
+    padding: 0 1rem;
+  }
+
+  .input-form {
+    margin-right: 0;
+    max-width: 100%;
+  }
+
+  .input-container {
+    padding: 0.75rem;
+    border-radius: 20px;
+    margin: 0 0.5rem;
+    min-height: 70px; /* 已降低最小高度 */
+    max-height: 60vh;
+  }
+
+  .input-content {
+    min-height: 50px;
+  }
+
+  .message-input {
+    min-height: 2.5em; /* 移动端2行最小高度 */
+    max-height: 150px;
+  }
+
+  .send-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mode-selector {
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    position: sticky; /* 新增：固定定位，防止被覆盖 */
+    bottom: 0;
+    background: white;
+    padding: 8px 0 4px;
+    z-index: 10; /* 新增：确保在最上层 */
+    border-top: 1px solid #f0f0f0;
+  }
+
+  /* 移动端上传模块适配 - 修复覆盖问题 */
+  .resume-upload-section {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 50px; /* 新增：为底部按钮预留空间 */
+  }
+
+  .upload-section {
+    min-height: 0;
+    padding-bottom: 60px; /* 新增：确保按钮区域不被覆盖 */
+  }
+
+  .upload-placeholder {
+    padding: 1.5rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.6rem;
+  }
+
+  .form-textarea {
+    min-height: 60px;
+    max-height: 150px;
+  }
+
+  /* 确保文件上传区域在移动端有足够空间 */
+  .file-upload-area {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* 调整高度手柄样式 */
+.resize-handle {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 16px;
+  cursor: ns-resize;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resize-dots {
+  display: flex;
+  gap: 4px;
+  background: #f8f9fa;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 2px 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resize-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #888;
+  border-radius: 50%;
+}
+
+.resize-handle:hover .resize-dots {
+  background: #f0f0f0;
+  border-color: #5792e8;
+}
+
+.resize-handle:hover .resize-dot {
+  background-color: #5792e8;
+}
+
+/* 只在简历模式下显示调整手柄 */
+.resume-mode + .resize-handle {
+  display: flex;
+}
+
+/* 调整简历模式容器样式 */
+.input-container.resume-mode {
+  min-height: 120px;
+  max-height: 550px; /* 允许调整到最大550px */
+  overflow-y: auto;
+  transition: height 0.1s ease-out;
+  position: relative;
+}
+
+/* 调整简历上传区域最大高度 */
+.resume-upload-section {
+  max-height: calc(100% - 60px); /* 减去模式选择器的高度 */
+}
+
+/* 调整模式选择器在简历模式下的位置 */
+.resume-mode .mode-selector {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 调整状态指示器 */
+.polling-indicator {
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  color: #5792e8;
+  background: #f0f7ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .resize-handle {
+    width: 50px;
+    height: 14px;
+  }
+
+  .resize-dots {
+    padding: 1px 6px;
+    gap: 3px;
+  }
+
+  .resize-dot {
+    width: 3px;
+    height: 3px;
+  }
+
+  .input-container.resume-mode {
+    min-height: 120px;
+    max-height: 550px;
+  }
+}

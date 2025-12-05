@@ -223,8 +223,9 @@ async def resume_optimization_chat(
     log.info(user_prompt+"当前时间："+current_date)
     log.info(res_opt_record)
     try:
-        # res = "聊天内容"
-        res = kimi.kimi_resume_optimization_chat(history_chat_record, user_prompt, res_opt_record)
+        time.sleep(6)  # 模拟处理时间
+        res = "聊天内容"
+        # res = kimi.kimi_resume_optimization_chat(history_chat_record, user_prompt, res_opt_record)
         log.info("聊天方法成功")
         return {"status": "success", "message": res}
     except Exception as e:
